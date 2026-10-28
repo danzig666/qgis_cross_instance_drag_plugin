@@ -16,3 +16,7 @@ Download `qgis_cross_instance_drag.zip` from the [latest release](https://github
 - Magyar: [qgis_cross_instance_drag/README_HU.md](qgis_cross_instance_drag/README_HU.md)
 
 Experimental: back up your projects before use.
+
+## License
+
+GNU General Public License v2.0 or later, see [LICENSE](LICENSE).

@@ -53,3 +53,7 @@ print(layer.id(), layer.providerType(), layer.featureCount())
 ```
 
 Run the same in the receiving instance after the drop. Without an ID collision the ID must match; for memory layers the feature count too.
+
+## License
+
+GNU General Public License v2.0 or later.

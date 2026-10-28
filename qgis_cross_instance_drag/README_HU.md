@@ -53,3 +53,7 @@ print(layer.id(), layer.providerType(), layer.featureCount())
 ```
 
 Áthúzás után a fogadó példányban ugyanez. Ha nem volt ID-ütközés, az ID-nak egyeznie kell; memóriarétegnél a rekordok számának is.
+
+## Licenc
+
+GNU General Public License v2.0 vagy újabb.

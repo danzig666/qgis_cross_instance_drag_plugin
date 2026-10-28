@@ -7,6 +7,8 @@ within the same QGIS process are left to QGIS.
 
 Experimental plugin, not a QGIS core patch. Uncommitted edits of persistent
 layers and external data files are not copied, only their definitions.
+
+SPDX-License-Identifier: GPL-2.0-or-later
 """
 
 import os
