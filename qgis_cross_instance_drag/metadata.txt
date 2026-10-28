@@ -1,0 +1,33 @@
+[general]
+name=Cross-Instance Layer Drag
+name[hu]=Rétegáthúzás QGIS-példányok között
+qgisMinimumVersion=3.22
+qgisMaximumVersion=4.99
+supportsQt6=True
+description=Keeps layer IDs and copies memory-layer features when dragging layers between two running QGIS instances.
+description[hu]=Megőrzi a layer ID-kat és átmásolja a memóriarétegek adatait, ha két futó QGIS-példány között húzol át rétegeket.
+about=When a layer is dragged from the Layers panel of one QGIS process to another, QGIS assigns a new layer ID and memory (temporary scratch) layers arrive empty. This plugin intercepts such drops: the original layer ID is kept unless it already exists in the target project (then only that layer gets a new ID and references are rewritten), and memory-layer features, including unsaved edits, are copied through a temporary GeoPackage snapshot. Groups, styles and layer settings are transferred as well. Works when dropping on the Layers panel or on the map canvas. Install and enable it in BOTH QGIS instances. The user interface is English or Hungarian, following the QGIS language.
+about[hu]=Ha egy réteget az egyik QGIS-folyamat Rétegek paneljéből egy másikba húzol, a QGIS új layer ID-t ad neki, a memória- (ideiglenes) rétegek pedig üresen érkeznek. A plugin elfogja ezeket az áthúzásokat: az eredeti layer ID megmarad, hacsak nem létezik már a célprojektben (ekkor csak az ütköző réteg kap új ID-t, a hivatkozások átíródnak), a memóriarétegek objektumai – a nem mentett szerkesztésekkel együtt – pedig egy ideiglenes GeoPackage-pillanatképen keresztül átmásolódnak. A csoportok, stílusok és rétegbeállítások is átkerülnek. Működik a Rétegek panelre és a térképvászonra történő ejtéskor is. MINDKÉT QGIS-példányban telepítsd és engedélyezd. A felület angol vagy magyar, a QGIS nyelvétől függően.
+version=0.2.0
+author=Community prototype
+email=
+homepage=https://github.com/danzig666/qgis_cross_instance_drag_plugin
+repository=https://github.com/danzig666/qgis_cross_instance_drag_plugin
+tracker=https://github.com/danzig666/qgis_cross_instance_drag_plugin/issues
+icon=icon.png
+category=Plugins
+tags=layer,drag and drop,memory layer,scratch layer,layer id,layer tree,instance,multiple instances
+experimental=True
+deprecated=False
+hasProcessingProvider=False
+changelog=0.2.0
+    - Fix: layer ID collisions were never rewritten (QDom has no "*" wildcard), so a colliding drop always failed
+    - Fix: drop position inside the Layers panel (dropIndicatorPosition() is not callable from Python)
+    - Fix: the restored layer-tree nodes no longer rely on abandonChildren(), which is not exposed to Python
+    - Memory layers without a snapshot are added (empty) with a warning instead of aborting the whole drop
+    - User field named "fid" is preserved (dedicated FID column in the snapshot)
+    - Drops on the map canvas / main window are handled too
+    - Old snapshot files are cleaned up automatically; new menu item to delete them
+    - QGIS 4 (Qt6) support, English and Hungarian user interface, plugin icon
+    0.1.0
+    - First prototype
